@@ -6,6 +6,7 @@ Cada slide é um dict:
     top                    (nome, papel) bloco laranja de direção (opcional)
     gray                   [(nome, papel), ...] blocos cinza logo abaixo do topo (opcional)
     columns                [{title, color, weight, items}, ...]
+    columns_width          fração da largura útil ocupada pelas colunas, centralizadas (padrão 1)
     legend                 lista com "line", "hiring" e/ou texto livre de rodapé
 Itens de coluna:
     ("head", nome, papel)                   cartão de liderança, largura total da coluna
@@ -163,9 +164,10 @@ def _render(spec, header_xml):
 
     # colunas
     cols = spec["columns"]
-    total_w = width - COL_GAP * (len(cols) - 1)
+    area_w = int(width * spec.get("columns_width", 1))
+    total_w = area_w - COL_GAP * (len(cols) - 1)
     weights = sum(c.get("weight", 1) for c in cols)
-    xs, x = [], L
+    xs, x = [], cx - area_w // 2
     for c in cols:
         w = int(total_w * c.get("weight", 1) / weights)
         xs.append((x, w))

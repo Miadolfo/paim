@@ -36,45 +36,63 @@ slides = [
         ],
         "legend": ["57 pessoas no total · detalhamento por área nos próximos slides", "line"],
     },
-    {   # atendimento + planejamento
-        "title": "RENNER · ATENDIMENTO E PLANEJAMENTO",
+    {   # atendimento
+        "title": "RENNER · ATENDIMENTO",
         "subtitle": SUB,
+        "top": ("DIREÇÃO DE CONTA · CAROLINE LIMA", "Renner BR · Renner Latam · LRSA"),
         "columns": [
-            {"title": "ATENDIMENTO", "color": GRAY, "weight": 2, "items": [
-                ("head", "CAROLINE LIMA", "Diretora de conta · BR · Latam · LRSA"),
-                ("grid", 2, [("JULIA ZENKER", "Executiva de conta · BR"),
+            {"title": "RENNER BR", "color": GRAY, "items": [
+                ("grid", 1, [("JULIA ZENKER", "Executiva de conta · BR"),
                              ("RUTE SCHMITZ", "Executiva de conta · BR"),
                              ("AMANDA SANTOS", "Executiva de conta · BR"),
-                             ("BRUNA FLORES", "Executiva de conta · BR · Latam"),
-                             ("DESIREE SEIXAS", "Executiva de conta · Latam"),
-                             ("CAROLINE TRILHA", "Executiva de conta · LRSA"),
-                             ("BRUNA BECKO", "Executiva de conta · Conteúdo BR · Latam"),
+                             ("BRUNA FLORES", "Executiva de conta · BR · Latam")])]},
+            {"title": "RENNER LATAM", "color": GRAY, "items": [
+                ("grid", 1, [("DESIREE SEIXAS", "Executiva de conta · Latam")])]},
+            {"title": "LRSA", "color": GRAY, "items": [
+                ("grid", 1, [("CAROLINE TRILHA", "Executiva de conta · LRSA")])]},
+            {"title": "CONTEÚDO", "color": GRAY, "items": [
+                ("grid", 1, [("BRUNA BECKO", "Executiva de conta · Conteúdo BR · Latam"),
                              ("MARINA CASAGRANDE", "Assistente de conta · Conteúdo BR · Latam")])]},
-            {"title": "PLANEJAMENTO", "color": RED, "weight": 1, "items": [
-                ("head", "EDUARDO FLORES", "VP de planejamento · BR · Latam · LRSA"),
-                ("head", "PAOLA PASCOALE", "Head de planejamento · BR · Latam · LRSA"),
-                ("grid", 1, [("ENIO XAVIER", "Executivo de planejamento · BR · Latam · LRSA"),
+        ],
+        "legend": [ESCOPO, "line"],
+    },
+    {   # planejamento
+        "title": "RENNER · PLANEJAMENTO",
+        "subtitle": SUB,
+        "top": ("VP DE PLANEJAMENTO · EDUARDO FLORES", "Renner BR · Renner Latam · LRSA"),
+        "gray": [("PAOLA PASCOALE", "Head de planejamento · BR · Latam · LRSA")],
+        "columns_width": 0.6,
+        "columns": [
+            {"title": "PLANEJAMENTO", "color": RED, "items": [
+                ("grid", 2, [("ENIO XAVIER", "Executivo de planejamento · BR · Latam · LRSA"),
                              ("LUIZA MENEZES", "Assistente de planejamento · BR · Latam · LRSA")])]},
         ],
         "legend": [ESCOPO, "line"],
     },
-    {   # mídia + analytics
-        "title": "RENNER · MÍDIA E ANALYTICS",
+    {   # mídia
+        "title": "RENNER · MÍDIA",
         "subtitle": SUB,
+        "top": ("DIREÇÃO DE MÍDIA · SIMONE MAGON", "Renner BR · Renner Latam · LRSA"),
+        "gray": [("PALOMA KUSSLER", "Head de mídia · toda a frente digital")],
         "columns": [
-            {"title": "MÍDIA", "color": WINE, "items": [
-                ("head", "SIMONE MAGON", "Diretora de mídia · BR · Latam · LRSA"),
-                ("head", "PALOMA KUSSLER", "Head de mídia · toda a frente digital"),
-                ("grid", 2, [("LEANDRO FREITAS", "Planejador de mídia · BR"),
+            {"title": "PLANEJAMENTO DE MÍDIA", "color": WINE, "items": [
+                ("grid", 3, [("LEANDRO FREITAS", "Planejador de mídia · BR"),
                              ("GABRIEL SOARES", "Planejador de mídia · BR"),
                              ("JULYE ALMEIDA", "Planejadora de mídia · BR"),
                              ("FERNANDA AZEVEDO", "Planejadora de mídia · BR · Latam"),
                              ("CARLA AZEVEDO", "Planejadora de mídia · toda a frente offline")])]},
-            {"title": "ANALYTICS E CRM", "color": BLACK, "items": [
-                ("head", "LUCAS DINIZ", "Diretor de analytics e CRM · BR · Latam · LRSA"),
-                ("head", "JOÃO MALOSSI", "Head de BI · BR · Latam"),
+        ],
+        "legend": [ESCOPO, "line"],
+    },
+    {   # analytics e CRM
+        "title": "RENNER · ANALYTICS E CRM",
+        "subtitle": SUB,
+        "top": ("DIREÇÃO DE ANALYTICS E CRM · LUCAS DINIZ", "Renner BR · Renner Latam · LRSA"),
+        "gray": [("JOÃO MALOSSI", "Head de BI · BR · Latam")],
+        "columns": [
+            {"title": "BI E ANALYTICS", "color": BLACK, "items": [
                 ("head", "EDUARDA FRIEDRICH", "Líder de BI · BR · Latam · LRSA"),
-                ("grid", 2, [("THAMARA BASTOS OLIVEIRA", "Especialista de analytics · BR · Latam · LRSA"),
+                ("grid", 3, [("THAMARA BASTOS OLIVEIRA", "Especialista de analytics · BR · Latam · LRSA"),
                              ("KEVI PEGORARO", "Cientista de dados · BR · Latam"),
                              ("ISABELA CANAL", "Analista de BI · BR · Latam"),
                              ("AMANDA OLIVEIRA", "Analista de BI · BR · Latam"),
