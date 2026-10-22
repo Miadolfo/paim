@@ -7,7 +7,7 @@ Cada slide é um dict:
     gray                   [(nome, papel), ...] blocos cinza logo abaixo do topo (opcional)
     columns                [{title, color, weight, items}, ...]
     columns_width          fração da largura útil ocupada pelas colunas, centralizadas (padrão 1)
-    legend                 lista com "line", "hiring" e/ou texto livre de rodapé
+    legend                 lista com "line", "hiring" (ou "hiring:Rótulo") e/ou texto livre de rodapé
 Itens de coluna:
     ("head", nome, papel)                   cartão de liderança, largura total da coluna
     ("grid", ncols, [(nome, papel[, tipo])]) cartões de equipe; tipo "member" | "hiring" | "summary"
@@ -43,6 +43,9 @@ def _wrap_lines(text, sz_pt, width_emu, bold):
     lines, cur = 1, 0.0
     for word in text.split(" "):
         w = len(word) * per_char
+        if w > usable:  # palavra maior que a linha: o PowerPoint quebra no meio
+            lines += math.ceil(w / usable) - 1
+            w = usable
         if cur == 0:
             cur = w
         elif cur + per_char + w <= usable:
@@ -217,15 +220,17 @@ def _render(spec, header_xml):
     legend = spec.get("legend", ["line"])
     lx, ly = R, 6311900
     for item in reversed(legend):
-        if item == "hiring":
-            s.text(lx - 1270000, ly, 1270000, 228600, [("Em contratação", 1200, BLACK, False)], ins=(0,) * 4, algn="l", spc=False)
-            s.rect(lx - 1270000 - 355600, ly + 31750, 254000, 165100, BG, ORANGE, 19050, "dash")
-            lx -= 1270000 + 355600 + 304800
+        if item.startswith("hiring"):
+            label = item.split(":", 1)[1] if ":" in item else "Em contratação"
+            tw = int((len(label) * 12 * 0.52 / 72 + 0.15) * EMU)
+            s.text(lx - tw, ly, tw, 228600, [(label, 1200, BLACK, False)], ins=(0,) * 4, algn="l", spc=False)
+            s.rect(lx - tw - 355600, ly + 31750, 254000, 165100, BG, ORANGE, 19050, "dash")
+            lx -= tw + 355600 + 304800
         elif item == "line":
             s.text(lx - 1905000, ly, 1905000, 228600, [("Liderança (responde a)", 1200, BLACK, False)], ins=(0,) * 4, algn="l", spc=False)
             s.line(lx - 1905000 - 431800, ly + 114300, lx - 1905000 - 76200, ly + 114300)
             lx -= 1905000 + 431800 + 304800
-    note = [i for i in legend if i not in ("line", "hiring")]
+    note = [i for i in legend if i != "line" and not i.startswith("hiring")]
     if note:
         s.text(L, ly, lx - L, 228600, [(note[0], 1100, MUTED, False)], ins=(0,) * 4, algn="l", spc=False)
 
