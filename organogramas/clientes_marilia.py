@@ -8,7 +8,8 @@ from organograma import BLACK, GRAY, ORANGE, RED, WINE, build  # noqa: E402
 GESTAO = ("GESTÃO DA CONTA · MINÉIA", "Gestão da conta")
 DUDA = ("DUDA WOLF", "Atendimento sênior")
 BRUNA = ("BRUNA CAVALHEIRO", "Atendimento júnior")
-DUPLA = ("head", "ISA SILVEIRA + LEO TORRES", "Liderança de criação")
+ISA = ("head", "ISA SILVEIRA", "Diretora de criação")
+LEO = ("head", "LEO TORRES", "Líder de criação")
 
 
 def area(title, color, people, weight=1):
@@ -25,7 +26,8 @@ slides = [
             area("PLANEJAMENTO", RED, [("MATEUS TOURINHO", "Planejamento")]),
             area("MÍDIA", WINE, [("LUISA CANTELLI", "Mídia")]),
             {"title": "CRIAÇÃO", "color": ORANGE, "weight": 2, "items": [
-                DUPLA,
+                ISA,
+                LEO,
                 ("grid", 2, [("DANIEL", "Criação"),
                              ("JOÃO", "Criação"),
                              ("D.A.", "A definir", "hiring"),
@@ -44,7 +46,8 @@ slides = [
             area("PLANEJAMENTO", RED, [("ROMULO", "Planejamento")]),
             area("MÍDIA", WINE, [("ERICA", "Mídia")]),
             {"title": "CRIAÇÃO", "color": ORANGE, "weight": 2, "items": [
-                DUPLA,
+                ISA,
+                LEO,
                 ("grid", 2, [("ADRIELI", "Criação"),
                              ("GABRIELA", "Criação"),
                              ("HELENA", "Criação"),
@@ -62,7 +65,8 @@ slides = [
         "columns": [
             area("MÍDIA", WINE, [("RAUL", "Mídia")]),
             {"title": "CRIAÇÃO", "color": ORANGE, "weight": 2, "items": [
-                DUPLA,
+                ISA,
+                LEO,
                 ("grid", 2, [("RAQUEL LOSEKAN", "Redação"),
                              ("RAÍSSA", "Estagiária de D.A.")])]},
             {"title": "CRM E SEO", "color": BLACK, "items": [
@@ -79,7 +83,7 @@ slides = [
         "columns_width": 0.5,
         "columns": [
             {"title": "CRIAÇÃO", "color": ORANGE, "items": [
-                ("head", "ISA SILVEIRA", "Liderança de criação"),
+                ISA,
                 ("grid", 2, [("D.A.", "Conforme disponibilidade", "hiring"),
                              ("REDAÇÃO", "Conforme disponibilidade", "hiring")])]},
         ],
