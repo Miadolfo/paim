@@ -1,4 +1,4 @@
-"""Organogramas dos clientes da Marília: Camicado, Phyto Parfums, Kappesberg e Grupo K1 ESG."""
+"""Organogramas dos clientes da Minéia: Camicado, Phyto Parfums, Kappesberg e Grupo K1 ESG."""
 import os
 import sys
 
@@ -92,5 +92,5 @@ slides = [
 ]
 
 if __name__ == "__main__":
-    out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..", "Organogramas_Clientes_Marilia.pptx")
-    print(build(slides, os.path.abspath(out), "Organogramas Clientes Marília"))
+    out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..", "Organogramas_Clientes_Mineia.pptx")
+    print(build(slides, os.path.abspath(out), "Organogramas Clientes Minéia"))
